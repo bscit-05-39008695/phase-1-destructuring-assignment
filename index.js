@@ -1,7 +1,26 @@
+// Destructuring from the string of animal names
 const farmAnimals = 'cow horse sheep pig chicken';
 
-const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// Destructuring to declare sounds
+const [moo, neigh, baa, oink, cluck] = farmAnimals.split(' ');
 
+// Destructuring to declare traditional animal names
+const [bessie, , dolly, babe, little] = farmAnimals.split(' '); // Matches names correctly
+
+// Destructuring to declare traditional animal colors
+const [blackAndWhite, , black, pink] = ['cow', 'horse', 'sheep', 'pig']; // Black and white for cow, etc.
+
+// Destructuring colors from the colors array
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+const [red, orange, yellow, green, blue, indigo, violet] = colors;
+
+// Destructuring using initials for rainbow colors
+const [r, o, y, g, b, , v] = colors;
+
+// Assigning Indigo using its position
+const indg = colors[5]; // Direct assignment
+
+// Destructuring from the muppet object
 const muppet = {
   muppetName: 'Miss Piggy',
   color: 'pink',
@@ -10,6 +29,9 @@ const muppet = {
   partner: 'Kermit'
 };
 
+const { muppetName, color, song, job, partner } = muppet;
+
+// Destructuring nested muppet object for songs and Kermit's details
 const nestedMuppet = {
   nestedName: 'Kermit',
   nestedColor: 'green',
@@ -24,6 +46,20 @@ const nestedMuppet = {
   nestedJob: 'Host of The Muppet Show',
   nestedPartner: 'Miss Piggy'
 };
+
+// Correct destructuring for songs 2 and 4, and Kermit's job and partner
+const { nestedJob, nestedPartner, album: { theMuppetMovie: { song2, song4 } } } = nestedMuppet;
+
+// Logging the results for verification (optional)
+console.log(moo, neigh, baa, oink, cluck); // Animal sounds
+console.log(bessie, dolly, babe, little);   // Traditional animal names
+console.log(blackAndWhite, black, pink);    // Traditional animal colors
+console.log(red, orange, yellow, green, blue, indigo, violet); // Rainbow colors
+console.log(r, o, y, g, b, v); // Initials for colors
+console.log(indg); // Indigo
+console.log(muppetName, color, song, job, partner); // Muppet properties
+console.log(song2, song4, nestedJob, nestedPartner); // Nested Muppet songs and details
+
 
 // Strings
 
